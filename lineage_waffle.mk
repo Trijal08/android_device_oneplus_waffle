@@ -8,14 +8,29 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from waffle device
-$(call inherit-product, device/oneplus/waffle/device.mk)
+# Inherit device configuration
+DEVICE_CODENAME := waffle
+DEVICE_PATH := device/oneplus/waffle
+COMMON_DEVICE_PATH := device/oneplus/sm8650-common
+VENDOR_PATH := vendor/oneplus/waffle
+COMMON_VENDOR_PATH := vendor/oneplus/sm8650-common
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
-# Inherit some common YAAP stuff.
-$(call inherit-product, vendor/yaap/config/common_full_phone.mk)
+# Inherit some common stuff
+ROM_VENDOR := lineage
+ifdef ROM_VENDOR
+$(call inherit-product, vendor/$(ROM_VENDOR)/config/common_full_phone.mk)
+else
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+endif
 
-PRODUCT_NAME := yaap_waffle
-PRODUCT_DEVICE := waffle
+# Device identifier. This must come after all inclusions
+ifdef ROM_VENDOR
+PRODUCT_NAME := $(ROM_VENDOR)_$(DEVICE_CODENAME)
+else
+PRODUCT_NAME := lineage_$(DEVICE_CODENAME)
+endif
+PRODUCT_DEVICE := $(DEVICE_CODENAME)
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := CPH2581
@@ -28,6 +43,7 @@ PRODUCT_CHARACTERISTICS := nosdcard
 scr_resolution := 1440
 TARGET_SCREEN_HEIGHT := 3120
 TARGET_SCREEN_WIDTH := 1440
+TARGET_BOOT_ANIMATION_RES := 1440
 
 # Build info
 PRODUCT_BUILD_PROP_OVERRIDES += \
