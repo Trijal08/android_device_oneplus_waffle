@@ -72,9 +72,12 @@ TARGET_SUPPORTS_CALL_RECORDING := true
 # GMS
 WITH_GMS := true
 
-# Mist OS Flags
-MIST_BUILD_TYPE := UNOFFICIAL
-MISTOS_MAINTAINER := GamerBoy1234294
+# RisingOS Revived Flags
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+RISING_MAINTAINER := GamerBoy1234294
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Qualcomm Snapdragon 8 Gen 3" \
+    RisingMaintainer="GamerBoy1234294"
 
 # Boot animation
 scr_resolution := 1440
