@@ -1,0 +1,6 @@
+# Infinity device props
+ro.infinity.soc=Snapdragon 8 Gen 3
+ro.infinity.battery=5400 mAh
+ro.infinity.display=1440x3168, 120 Hz
+ro.infinity.camera=50MP + 64MP + 48MP
+ro.product.marketname=OnePlus 12

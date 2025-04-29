@@ -17,7 +17,7 @@ COMMON_VENDOR_PATH := vendor/oneplus/sm8650-common
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Inherit some common stuff
-ROM_VENDOR := lineage
+ROM_VENDOR := infinity
 ifdef ROM_VENDOR
 $(call inherit-product, vendor/$(ROM_VENDOR)/config/common_full_phone.mk)
 else
@@ -73,11 +73,13 @@ TARGET_SUPPORTS_CLEAR_CALLING := true
 TARGET_SUPPORTS_CALL_RECORDING := true
 
 # GMS
-WITH_GMS := true
+WITH_GAPPS := true
+TARGET_SHIPS_FULL_GAPPS := true
+TARGET_SHIPS_GOOGLE_DIALER := true
 
 # Mist OS Flags
-MIST_BUILD_TYPE := UNOFFICIAL
-MISTOS_MAINTAINER := GamerBoy1234294
+INFINITY_BUILD_TYPE := UNOFFICIAL
+INFINITY_MAINTAINER := "GamerBoy1234294"
 
 # Boot animation
 scr_resolution := 1440
