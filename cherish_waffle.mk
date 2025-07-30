@@ -17,7 +17,7 @@ COMMON_VENDOR_PATH := vendor/oneplus/sm8650-common
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Inherit some common stuff
-ROM_VENDOR := lineage
+ROM_VENDOR := cherish
 ifdef ROM_VENDOR
 $(call inherit-product, vendor/$(ROM_VENDOR)/config/common_full_phone.mk)
 else
